@@ -1845,3 +1845,575 @@ Processing by MoviesController#index as HTML
   [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC
   Rendered movies/index.html.haml within layouts/application (3.7ms)
 Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 47.218.210.254 at 2018-10-02 09:03:31 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 29ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:03:31 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[36mMovie Load (0.7ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (16.4ms)
+Completed 200 OK in 195ms (Views: 189.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/movies/10" for 47.218.210.254 at 2018-10-02 09:03:34 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered movies/show.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/10/edit" for 47.218.210.254 at 2018-10-02 09:03:36 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered movies/edit.html.haml within layouts/application (9.8ms)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/movies/10" for 47.218.210.254 at 2018-10-02 09:03:39 +0000
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ENCFTBngNPNBF/KfeU35/qoDwpj66y22xqNkDg3fZj/+biWoVmToUdOJ8DRWdmmjCBaPLGcFLKPnva+V8bISw==", "movie"=>{"title"=>"Chicken Run", "rating"=>"G", "release_date(1i)"=>"2000", "release_date(2i)"=>"6", "release_date(3i)"=>"21", "director"=>"James"}, "commit"=>"Update Movie Info", "id"=>"10"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "movies" SET "director" = $1, "updated_at" = $2 WHERE "movies"."id" = $3  [["director", "James"], ["updated_at", "2018-10-02 09:03:39.538378"], ["id", 10]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies/10
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/movies/10" for 47.218.210.254 at 2018-10-02 09:03:39 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/10/same_director" for 47.218.210.254 at 2018-10-02 09:03:42 +0000
+Processing by MoviesController#same_director as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = $1  [["director", "James"]]
+  Rendered movies/same_director.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies" for 47.218.210.254 at 2018-10-02 09:03:44 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:03:44 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/10" for 47.218.210.254 at 2018-10-02 09:03:47 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/9" for 47.218.210.254 at 2018-10-02 09:03:49 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered movies/show.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/9/edit" for 47.218.210.254 at 2018-10-02 09:03:51 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered movies/edit.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/movies/9" for 47.218.210.254 at 2018-10-02 09:03:54 +0000
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CJHHgXaX7p36x958gou8ZVWQ1JDlanCRQCcLvQMUjGcHKz0C56n973CNpnYuN1IkIxiBpjcdyJUUo3CTbOU5tA==", "movie"=>{"title"=>"Raiders of the Lost Ark", "rating"=>"PG", "release_date(1i)"=>"1981", "release_date(2i)"=>"6", "release_date(3i)"=>"12", "director"=>"James"}, "commit"=>"Update Movie Info", "id"=>"9"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "movies" SET "director" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["director", "James"], ["updated_at", "2018-10-02 09:03:54.503596"], ["id", 9]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies/9
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/movies/9" for 47.218.210.254 at 2018-10-02 09:03:54 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/9/same_director" for 47.218.210.254 at 2018-10-02 09:03:56 +0000
+Processing by MoviesController#same_director as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."director" = $1[0m  [["director", "James"]]
+  Rendered movies/same_director.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies" for 47.218.210.254 at 2018-10-02 09:03:58 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:03:58 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC
+  Rendered movies/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/4" for 47.218.210.254 at 2018-10-02 09:03:59 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/4/same_director" for 47.218.210.254 at 2018-10-02 09:04:01 +0000
+Processing by MoviesController#same_director as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 4]]
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/movies" for 47.218.210.254 at 2018-10-02 09:04:01 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:04:01 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (3.7ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/10" for 47.218.210.254 at 2018-10-02 09:04:04 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/10/same_director" for 47.218.210.254 at 2018-10-02 09:04:06 +0000
+Processing by MoviesController#same_director as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = $1  [["director", "James"]]
+  Rendered movies/same_director.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/9" for 47.218.210.254 at 2018-10-02 09:04:10 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/9/same_director" for 47.218.210.254 at 2018-10-02 09:04:12 +0000
+Processing by MoviesController#same_director as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."director" = $1[0m  [["director", "James"]]
+  Rendered movies/same_director.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies" for 47.218.210.254 at 2018-10-02 09:04:18 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:04:18 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC
+  Rendered movies/index.html.haml within layouts/application (3.7ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/10" for 47.218.210.254 at 2018-10-02 09:04:20 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/10/same_director" for 47.218.210.254 at 2018-10-02 09:04:23 +0000
+Processing by MoviesController#same_director as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."director" = $1[0m  [["director", "James"]]
+  Rendered movies/same_director.html.haml within layouts/application (2.4ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/10/edit" for 47.218.210.254 at 2018-10-02 09:04:27 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered movies/edit.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/movies/10" for 47.218.210.254 at 2018-10-02 09:04:30 +0000
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ECq/GfVaX+W1SXU4uH/WnLnoA7R/Y/ebYaXo22dUMasfkEWaZGRMlz8DDTIUwzjdz2BWgq0UT581IZP1CKWEeA==", "movie"=>{"title"=>"Chicken Run", "rating"=>"G", "release_date(1i)"=>"2000", "release_date(2i)"=>"6", "release_date(3i)"=>"21", "director"=>""}, "commit"=>"Update Movie Info", "id"=>"10"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "movies" SET "director" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["director", ""], ["updated_at", "2018-10-02 09:04:30.869696"], ["id", 10]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies/10
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/movies/10" for 47.218.210.254 at 2018-10-02 09:04:30 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies" for 47.218.210.254 at 2018-10-02 09:04:32 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:04:32 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC
+  Rendered movies/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/9" for 47.218.210.254 at 2018-10-02 09:04:33 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/9/edit" for 47.218.210.254 at 2018-10-02 09:04:36 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered movies/edit.html.haml within layouts/application (2.6ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/movies/9" for 47.218.210.254 at 2018-10-02 09:04:38 +0000
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"82PuWFP4521d/NcWVNbcF5IivMulVtGhNDBBzqrN2mv82RTbwsb0H9e2rxz4ajJW5Krp/XchaaVgtDrgxTxvuA==", "movie"=>{"title"=>"Raiders of the Lost Ark", "rating"=>"PG", "release_date(1i)"=>"1981", "release_date(2i)"=>"6", "release_date(3i)"=>"12", "director"=>""}, "commit"=>"Update Movie Info", "id"=>"9"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "movies" SET "director" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["director", ""], ["updated_at", "2018-10-02 09:04:38.409368"], ["id", 9]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies/9
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/movies/9" for 47.218.210.254 at 2018-10-02 09:04:38 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies" for 47.218.210.254 at 2018-10-02 09:04:39 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:04:39 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC
+  Rendered movies/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/9" for 47.218.210.254 at 2018-10-02 09:04:41 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movies/9/same_director" for 47.218.210.254 at 2018-10-02 09:04:43 +0000
+Processing by MoviesController#same_director as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 9]]
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/movies" for 47.218.210.254 at 2018-10-02 09:04:43 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:04:43 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 47.218.210.254 at 2018-10-02 09:34:12 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 25ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:34:12 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[36mMovie Load (0.6ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (17.7ms)
+Completed 200 OK in 194ms (Views: 188.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/movies/1" for 47.218.210.254 at 2018-10-02 09:34:15 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered movies/show.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/1/same_director" for 47.218.210.254 at 2018-10-02 09:34:17 +0000
+Processing by MoviesController#same_director as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/movies" for 47.218.210.254 at 2018-10-02 09:34:17 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:34:17 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC
+  Rendered movies/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&title_sort=true&ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BNC-17%5D=1&ratings%5BR%5D=1&commit=Refresh" for 47.218.210.254 at 2018-10-02 09:34:19 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "title_sort"=>"true", "ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "NC-17"=>"1", "R"=>"1"}, "commit"=>"Refresh"}
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:34:20 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=release_date" for 47.218.210.254 at 2018-10-02 09:34:21 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"release_date"}
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=release_date
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=release_date" for 47.218.210.254 at 2018-10-02 09:34:21 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"release_date"}
+  [1m[35mMovie Load (1.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."release_date" ASC
+  Rendered movies/index.html.haml within layouts/application (4.6ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=release_date" for 47.218.210.254 at 2018-10-02 09:34:22 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"release_date"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."release_date" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:34:23 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:34:23 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC
+  Rendered movies/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/8" for 47.218.210.254 at 2018-10-02 09:34:25 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies" for 47.218.210.254 at 2018-10-02 09:34:27 +0000
+Processing by MoviesController#index as HTML
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:34:27 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC
+  Rendered movies/index.html.haml within layouts/application (3.7ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/new" for 47.218.210.254 at 2018-10-02 09:34:29 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.haml within layouts/application (8.5ms)
+Completed 200 OK in 15ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&title_sort=true&ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BNC-17%5D=1&commit=Refresh" for 47.218.210.254 at 2018-10-02 09:34:33 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "title_sort"=>"true", "ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "NC-17"=>"1"}, "commit"=>"Refresh"}
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:34:33 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1"}, "sort"=>"title"}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13')  ORDER BY "movies"."title" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&title_sort=true&ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&commit=Refresh" for 47.218.210.254 at 2018-10-02 09:34:36 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "title_sort"=>"true", "ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1"}, "commit"=>"Refresh"}
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:34:36 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1"}, "sort"=>"title"}
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13')  ORDER BY "movies"."title" ASC
+  Rendered movies/index.html.haml within layouts/application (3.3ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&title_sort=true&ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&commit=Refresh" for 47.218.210.254 at 2018-10-02 09:34:38 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "title_sort"=>"true", "ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "commit"=>"Refresh"}
+Redirected to https://094546b7d1e94c3c99353b0a63245512.vfs.cloud9.us-east-2.amazonaws.com/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&sort=title" for 47.218.210.254 at 2018-10-02 09:34:38 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "sort"=>"title"}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')  ORDER BY "movies"."title" ASC[0m
+  Rendered movies/index.html.haml within layouts/application (3.8ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mDROP DATABASE IF EXISTS "my_database_development"[0m
+  [1m[35m (0.1ms)[0m  DROP DATABASE IF EXISTS "my_database_test"
+  [1m[36m (221.6ms)[0m  [1mCREATE DATABASE "my_database_development" ENCODING = 'utf8'[0m
+  [1m[35m (221.0ms)[0m  CREATE DATABASE "my_database_test" ENCODING = 'utf8'
+  [1m[36mSQL (0.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.5ms)[0m  CREATE TABLE "movies" ("id" serial primary key, "title" character varying, "rating" character varying, "description" text, "release_date" timestamp, "created_at" timestamp, "updated_at" timestamp, "director" character varying) 
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (3.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181001202738')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111119180638')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (8.8ms)[0m  [1mCREATE TABLE "movies" ("id" serial primary key, "title" character varying, "rating" character varying, "description" text, "release_date" timestamp, "created_at" timestamp, "updated_at" timestamp, "director" character varying) [0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (3.0ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20181001202738')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111119180638')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Aladdin"], ["rating", "G"], ["release_date", "1992-11-25 00:00:00.000000"], ["created_at", "2018-10-02 10:26:58.855112"], ["updated_at", "2018-10-02 10:26:58.855112"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "The Terminator"], ["rating", "R"], ["release_date", "1984-10-26 00:00:00.000000"], ["created_at", "2018-10-02 10:26:58.857917"], ["updated_at", "2018-10-02 10:26:58.857917"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "When Harry Met Sally"], ["rating", "R"], ["release_date", "1989-07-21 00:00:00.000000"], ["created_at", "2018-10-02 10:26:58.859849"], ["updated_at", "2018-10-02 10:26:58.859849"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "The Help"], ["rating", "PG-13"], ["release_date", "2011-08-10 00:00:00.000000"], ["created_at", "2018-10-02 10:26:58.861815"], ["updated_at", "2018-10-02 10:26:58.861815"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Chocolat"], ["rating", "PG-13"], ["release_date", "2001-01-05 00:00:00.000000"], ["created_at", "2018-10-02 10:26:58.863650"], ["updated_at", "2018-10-02 10:26:58.863650"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Amelie"], ["rating", "R"], ["release_date", "2001-04-25 00:00:00.000000"], ["created_at", "2018-10-02 10:26:58.865569"], ["updated_at", "2018-10-02 10:26:58.865569"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "2001: A Space Odyssey"], ["rating", "G"], ["release_date", "1968-04-06 00:00:00.000000"], ["created_at", "2018-10-02 10:26:58.867458"], ["updated_at", "2018-10-02 10:26:58.867458"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "The Incredibles"], ["rating", "PG"], ["release_date", "2004-11-05 00:00:00.000000"], ["created_at", "2018-10-02 10:26:58.869367"], ["updated_at", "2018-10-02 10:26:58.869367"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Raiders of the Lost Ark"], ["rating", "PG"], ["release_date", "1981-06-12 00:00:00.000000"], ["created_at", "2018-10-02 10:26:58.871253"], ["updated_at", "2018-10-02 10:26:58.871253"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "movies" ("title", "rating", "release_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Chicken Run"], ["rating", "G"], ["release_date", "2000-06-21 00:00:00.000000"], ["created_at", "2018-10-02 10:26:58.873220"], ["updated_at", "2018-10-02 10:26:58.873220"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m

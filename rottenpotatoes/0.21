@@ -1,0 +1,64 @@
+Fetching: pg-1.1.3.gemFetching: pg-1.1.3.gem (  1%)Fetching: pg-1.1.3.gem (  3%)Fetching: pg-1.1.3.gem (  4%)Fetching: pg-1.1.3.gem (  5%)Fetching: pg-1.1.3.gem (  6%)Fetching: pg-1.1.3.gem (  7%)Fetching: pg-1.1.3.gem (  8%)Fetching: pg-1.1.3.gem ( 10%)Fetching: pg-1.1.3.gem ( 11%)Fetching: pg-1.1.3.gem ( 12%)Fetching: pg-1.1.3.gem ( 13%)Fetching: pg-1.1.3.gem ( 14%)Fetching: pg-1.1.3.gem ( 21%)Fetching: pg-1.1.3.gem ( 28%)Fetching: pg-1.1.3.gem ( 35%)Fetching: pg-1.1.3.gem ( 42%)Fetching: pg-1.1.3.gem ( 49%)Fetching: pg-1.1.3.gem ( 56%)Fetching: pg-1.1.3.gem ( 63%)Fetching: pg-1.1.3.gem ( 70%)Fetching: pg-1.1.3.gem ( 77%)Fetching: pg-1.1.3.gem ( 84%)Fetching: pg-1.1.3.gem ( 91%)Fetching: pg-1.1.3.gem ( 98%)Fetching: pg-1.1.3.gem (100%)Fetching: pg-1.1.3.gem (100%)
+Building native extensions.  This could take a while...
+ERROR:  Error installing pg:
+	ERROR: Failed to build gem native extension.
+
+    current directory: /app/vendor/ruby-2.4.0/lib/ruby/gems/2.4.0/gems/pg-1.1.3/ext
+/app/vendor/ruby-2.4.0/bin/ruby -r ./siteconf20181002-4-pkzkja.rb extconf.rb
+checking for pg_config... no
+No pg_config... trying anyway. If building fails, please try again with
+ --with-pg-config=/path/to/pg_config
+checking for libpq-fe.h... *** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/app/vendor/ruby-2.4.0/bin/$(RUBY_BASE_NAME)
+	--with-pg
+	--without-pg
+	--enable-windows-cross
+	--disable-windows-cross
+	--with-pg-config
+	--without-pg-config
+	--with-pg_config
+	--without-pg_config
+	--with-pg-dir
+	--without-pg-dir
+	--with-pg-include
+	--without-pg-include=${pg-dir}/include
+	--with-pg-lib
+	--without-pg-lib=${pg-dir}/lib
+/app/vendor/ruby-2.4.0/lib/ruby/2.4.0/mkmf.rb:457:in `try_do': The compiler failed to generate an executable file. (RuntimeError)
+You have to install development tools first.
+	from /app/vendor/ruby-2.4.0/lib/ruby/2.4.0/mkmf.rb:588:in `try_cpp'
+	from /app/vendor/ruby-2.4.0/lib/ruby/2.4.0/mkmf.rb:1148:in `block in find_header'
+	from /app/vendor/ruby-2.4.0/lib/ruby/2.4.0/mkmf.rb:945:in `block in checking_for'
+	from /app/vendor/ruby-2.4.0/lib/ruby/2.4.0/mkmf.rb:351:in `block (2 levels) in postpone'
+	from /app/vendor/ruby-2.4.0/lib/ruby/2.4.0/mkmf.rb:321:in `open'
+	from /app/vendor/ruby-2.4.0/lib/ruby/2.4.0/mkmf.rb:351:in `block in postpone'
+	from /app/vendor/ruby-2.4.0/lib/ruby/2.4.0/mkmf.rb:321:in `open'
+	from /app/vendor/ruby-2.4.0/lib/ruby/2.4.0/mkmf.rb:347:in `postpone'
+	from /app/vendor/ruby-2.4.0/lib/ruby/2.4.0/mkmf.rb:944:in `checking_for'
+	from /app/vendor/ruby-2.4.0/lib/ruby/2.4.0/mkmf.rb:1147:in `find_header'
+	from extconf.rb:54:in `<main>'
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /app/vendor/ruby-2.4.0/lib/ruby/gems/2.4.0/extensions/x86_64-linux/2.4.0-static/pg-1.1.3/mkmf.log
+
+extconf failed, exit code 1
+
+Gem files will remain installed in /app/vendor/ruby-2.4.0/lib/ruby/gems/2.4.0/gems/pg-1.1.3 for inspection.
+Results logged to /app/vendor/ruby-2.4.0/lib/ruby/gems/2.4.0/extensions/x86_64-linux/2.4.0-static/pg-1.1.3/gem_make.out
+ERROR:  Could not find a valid gem '/home/ec2-user' (>= 0) in any repository
